@@ -16,8 +16,8 @@ const Repo = (repo) => {
     }
   }
 
-  console.log(formattedDate)
-  console.log(repo);
+  // console.log(formattedDate)
+  // console.log(repo);
   return (
     <li className="mb-10 ms-7">
       <span
