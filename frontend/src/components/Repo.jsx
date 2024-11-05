@@ -4,12 +4,12 @@ import { formatDate } from "../utils/funtions";
 import { PROGRAMMING_LANGUAGES } from "../utils/constants";
 import toast from "react-hot-toast";
 
-const Repo = (repo) => {
-  const formattedDate = formatDate(repo.repo.created_at);
+const Repo = ({repo}) => {
+  const formattedDate = formatDate(repo.created_at);
 
   const handleOnClick = async (repo) => {
     try {
-      await navigator.clipboard.writeText(repo.repo.clone_url);
+      await navigator.clipboard.writeText(repo.clone_url);
       toast.success("Repo URL cloned to clipboard");
     } catch (error) {
       toast.error("Clipboard write failed.");
@@ -28,24 +28,24 @@ const Repo = (repo) => {
       </span>
       <div className="flex gap-2 items-center flex-wrap">
         <a
-          href={"repo.html_url"}
+          href={repo.html_url}
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-2 text-lg font-semibold"
         >
-          {repo.repo.name}
+          {repo.name}
         </a>
         <span
           className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5
         py-0.5 rounded-full flex items-center gap-1"
         >
-          <FaRegStar /> {repo.repo.stargazers_count}
+          <FaRegStar /> {repo.stargazers_count}
         </span>
         <span
           className="bg-purple-100 text-purple-800 text-xs font-medium
          px-2.5 py-0.5 rounded-full flex items-center gap-1"
         >
-          <FaCodeFork /> {repo.repo.forks_count}
+          <FaCodeFork /> {repo.forks_count}
         </span>
         <span
         onClick={() => handleOnClick(repo)}
@@ -62,13 +62,13 @@ const Repo = (repo) => {
         Released on {formattedDate}
       </time>
       <p className="mb-4 text-base font-normal text-gray-500">
-        {repo.repo.desription
-          ? repo.repo.description.slice(0, 500)
+        {repo.description
+          ? repo.description.slice(0, 500)
           : "No description provided"}
       </p>
-      {PROGRAMMING_LANGUAGES[repo.repo.language] ? (
+      {PROGRAMMING_LANGUAGES[repo.language] ? (
         <img
-          src={PROGRAMMING_LANGUAGES[repo.repo.language]}
+          src={PROGRAMMING_LANGUAGES[repo.language]}
           alt="Programming language icon"
           className="h-8"
         />
