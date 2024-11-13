@@ -8,7 +8,7 @@ const ExplorePage = () => {
   const [loading, setLoading] = useState(false);
   const [repos, setRepos] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState("");
-
+  
   const exploreRepos = async (language) => {
     setLoading(true);
     setRepos([]);
