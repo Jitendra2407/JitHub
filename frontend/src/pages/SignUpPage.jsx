@@ -17,6 +17,7 @@ const SignUpPage = () => {
 						focus:ring-[#24292F]/50 font-medium rounded-lg flex gap-2 p-2 items-center w-full 
 						text-center justify-center"
             onClick={handleLoginWithGithub}
+            // onClick={() => handleLoginWithGithub("signup")}
           >
             <FaGithub className="w-5 h-5" />
             Sign up with Github

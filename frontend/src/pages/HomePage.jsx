@@ -19,7 +19,7 @@ const HomePage = () => {
       setLoading(true);
       // 60 requests per hour, 5000 requests per hour for authenticated requests
 
-      const res = await fetch(`http://localhost:5000/api/users/profile/${username}`)  //fetch from our backend
+      const res = await fetch(`/api/users/profile/${username}`)  //fetch from our backend
       const {userProfile, repos} = await res.json();
 
       repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
